@@ -1,6 +1,8 @@
-- # 💊 Recordatorio de Medicamentos
+# 💊 Dosify
 
-Aplicación Android que ayuda a recordar la toma de medicamentos y suplementos (por ejemplo, creatina) con **alarmas reales**, un **historial verificable de tomas** y un **control de pastillas restantes** que avisa cuándo reclamar un nuevo suministro.
+_Recordatorio de medicamentos y suplementos_
+
+**Dosify** es una aplicación Android que ayuda a recordar la toma de medicamentos y suplementos (por ejemplo, creatina) con **alarmas reales**, un **historial verificable de tomas** y un **control de pastillas restantes** que avisa cuándo reclamar un nuevo suministro.
 
 > A diferencia de una alarma normal del celular, aquí queda constancia de si la toma se realizó o no.
 
@@ -111,7 +113,7 @@ Esta app resuelve ambos puntos con recordatorios automáticos, confirmación de 
 ## 🗂️ Estructura del proyecto
 
 ```
-RecordatorioMedicamentos/
+Dosify/
 ├── build.gradle.kts
 ├── settings.gradle.kts
 ├── gradle.properties
