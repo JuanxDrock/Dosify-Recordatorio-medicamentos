@@ -151,6 +151,11 @@ Dosify/
 
 ---
 
-## 👤 Autor
+## Autor
 
-Desarrollado por [JuanxDrock](https://github.com/JuanxDrock).
+Desarrollado por **JuanxDrock**
+Instagram, TikTok, YouTube, Facebook y X: **@juanxdrocktech**
+
+---
+
+© 2026 JuanxDrock. Todos los derechos reservados. Este proyecto no es de código abierto; el código, el diseño y el nombre no pueden copiarse, distribuirse ni usarse sin autorización del autor.
