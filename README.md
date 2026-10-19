@@ -18,6 +18,7 @@ Esta app resuelve ambos puntos con recordatorios automáticos, confirmación de 
 
 ## ✨ Funcionalidades
 
+- **Pantalla de inicio** con el logo de Dosify (campana con pastilla), registro e inicio de sesión. Las contraseñas se guardan con sal y PBKDF2, nunca en texto plano.
 - **Medicamentos y suplementos ilimitados**, cada uno con su propia programación.
 - **Horarios flexibles**
   - Horas fijas: `08:00, 14:00, 20:00`
@@ -73,10 +74,11 @@ Esta app resuelve ambos puntos con recordatorios automáticos, confirmación de 
 
 **Flujo de uso**
 
-1. **Medicamentos** → lista de medicamentos con horarios y pastillas restantes.
-2. **Botón +** → formulario: nombre, horarios (o cada X horas), pastillas por toma y días de suministro.
-3. **Alarma** → suena en cada horario; se confirma desde la notificación.
-4. **Tomas** → historial con checkbox para verificar qué dosis se tomaron.
+1. **Inicio** → logo, email y contraseña; el botón *Registrarse* crea la cuenta.
+2. **Medicamentos** → lista de medicamentos con horarios y pastillas restantes.
+3. **Botón +** → formulario: nombre, horarios (o cada X horas), pastillas por toma y días de suministro.
+4. **Alarma** → suena en cada horario; se confirma desde la notificación.
+5. **Tomas** → historial con checkbox para verificar qué dosis se tomaron.
 
 ---
 
@@ -122,6 +124,7 @@ Dosify/
     └── src/main/
         ├── AndroidManifest.xml
         └── java/com/medreminder/
+            ├── LoginScreen.kt    # Pantalla de inicio: logo, login y registro
             ├── MainActivity.kt   # Interfaz (Compose): medicamentos, tomas, diálogos
             ├── Scheduler.kt      # Alarmas, notificaciones y receivers
             └── Data.kt           # Base de datos SQLite y modelos
@@ -132,6 +135,7 @@ Dosify/
 ## ⚠️ Notas importantes
 
 - En algunos fabricantes (Xiaomi, Samsung, Huawei, Oppo) conviene **desactivar la optimización de batería** para la app; de lo contrario el sistema puede retrasar o cancelar las alarmas.
+- Las cuentas son locales (no hay servidor): por ahora los medicamentos y el historial son compartidos por todas las cuentas del mismo dispositivo.
 - Los datos se almacenan solo en el dispositivo: si se desinstala la app, se pierde el historial.
 - El modo "cada X horas" genera los horarios dentro de un día de 24 h; funciona mejor con intervalos que dividen 24 (2, 3, 4, 6, 8, 12 h).
 - Esta app es una ayuda de recordatorio y **no reemplaza la indicación de un profesional de la salud**.
@@ -142,14 +146,17 @@ Dosify/
 
 - **v0.1** — Versión funcional base: alta de medicamentos con horarios fijos o cada X horas, alarmas con sonido y vibración, confirmación de toma desde la notificación, historial con checkbox, control de pastillas y aviso 1 día antes de que se acaben, reabastecimiento y reprogramación tras reinicio.
 
+- **v0.2** — Pantalla de inicio con logo (campana con pastilla), registro e inicio de sesión local y cierre de sesión.
+
 ## 🛣️ Roadmap
 
-- **v0.2** — Edición de medicamentos existentes, posponer alarma, registro e inicio de sesión de usuarios.
-- **v0.3** — Exportación de reportes de adherencia (PDF/CSV).
-- **v0.4** — Panel de administrador: gestión de usuarios y reportes de adherencia.
+- **v0.3** — Edición de medicamentos existentes, posponer alarma y medicamentos separados por usuario.
+- **v0.4** — Exportación de reportes de adherencia (PDF/CSV).
+- **v0.5** — Panel de administrador: gestión de usuarios y reportes de adherencia.
 - **v1.0** — Versión estable con todas las funcionalidades planificadas.
 
 ---
+
 
 ## Autor
 
