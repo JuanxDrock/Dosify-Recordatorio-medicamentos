@@ -19,6 +19,9 @@ Esta app resuelve ambos puntos con recordatorios automáticos, confirmación de 
 ## ✨ Funcionalidades
 
 - **Pantalla de inicio** con el logo de Dosify (campana con pastilla), registro e inicio de sesión. Las contraseñas se guardan con sal y PBKDF2, nunca en texto plano.
+- **Editar** cualquier medicamento (nombre, horas, días, tabletas y suministro) tocando su tarjeta.
+- **Días de la semana**: elige en qué días se repite cada recordatorio.
+- **Marcar como tomada** con un check desde la lista, el historial o la notificación; suena un tono de confirmación.
 - **Medicamentos y suplementos ilimitados**, cada uno con su propia programación.
 - **Horarios flexibles**
   - Horas fijas: `08:00, 14:00, 20:00`
@@ -148,11 +151,13 @@ Dosify/
 
 - **v0.2** — Pantalla de inicio con logo (campana con pastilla), registro e inicio de sesión local y cierre de sesión.
 
+- **v0.3** — Interfaz minimalista siguiendo los wireframes, edición de medicamentos, días de la semana, check de toma con sonido y notificación con el texto del diseño.
+
 ## 🛣️ Roadmap
 
-- **v0.3** — Edición de medicamentos existentes, posponer alarma y medicamentos separados por usuario.
-- **v0.4** — Exportación de reportes de adherencia (PDF/CSV).
-- **v0.5** — Panel de administrador: gestión de usuarios y reportes de adherencia.
+- **v0.4** — Posponer alarma y medicamentos separados por usuario.
+- **v0.5** — Exportación de reportes de adherencia (PDF/CSV).
+- **v0.6** — Panel de administrador: gestión de usuarios y reportes de adherencia.
 - **v1.0** — Versión estable con todas las funcionalidades planificadas.
 
 ---
