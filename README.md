@@ -18,10 +18,16 @@ Esta app resuelve ambos puntos con recordatorios automáticos, confirmación de 
 
 ## ✨ Funcionalidades
 
-- **Pantalla de inicio** con el logo de Dosify (campana con pastilla), registro e inicio de sesión. Las contraseñas se guardan con sal y PBKDF2, nunca en texto plano.
+- **Pantalla de inicio** con el logo de Dosify (campana con pastilla), registro e inicio de sesión. Las contraseñas se guardan con sal y PBKDF2, nunca en texto plano. El campo de contraseña tiene un ojito para verla u ocultarla.
 - **Editar** cualquier medicamento (nombre, horas, días, tabletas y suministro) tocando su tarjeta.
 - **Días de la semana**: elige en qué días se repite cada recordatorio.
 - **Marcar como tomada** con un check desde la lista, el historial o la notificación; suena un tono de confirmación.
+- **Alarma insistente**: suena al volumen máximo, vibra en bucle y no se detiene hasta pulsar "Ya la tomé" (o "Ya reclamé" en el aviso de reclamar medicamento). Aparece sobre la pantalla de bloqueo.
+- **Buscador** de medicamentos y de historial, y orden **por hora** (las de la mañana primero) o **por nombre**.
+- **Suplementos en gramos**: porción por toma y cantidad total del tarro (ej. creatina 5 g/día, tarro de 150 g ≈ 30 días) con aviso 1 día antes de que se acabe.
+- **Categorías e íconos**: cada recordatorio es *Medicamento* o *Suplemento*, con ícono a elegir, y se organizan por sección en la pantalla.
+- **Accesibilidad para adultos mayores**: tamaño de letra, alto contraste, narrador por voz (dice dónde estás y qué pulsas) y dictado por voz.
+- **Alarma a prueba de fallos**: usa `setAlarmClock`, se reprograma al abrir la app/reiniciar/actualizar, salta el silencio con volumen de alarma al máximo, sonido de respaldo incluido, pantalla completa sobre el bloqueo, y sonido e intensidad de vibración configurables. Incluye un panel de revisión de permisos.
 - **Medicamentos y suplementos ilimitados**, cada uno con su propia programación.
 - **Horarios flexibles**
   - Horas fijas: `08:00, 14:00, 20:00`
@@ -50,7 +56,7 @@ Esta app resuelve ambos puntos con recordatorios automáticos, confirmación de 
 | Lenguaje | Kotlin |
 | Interfaz | Jetpack Compose + Material 3 |
 | Base de datos | SQLite (local) |
-| Alarmas | `AlarmManager` (alarmas exactas) |
+| Alarmas | `AlarmManager` (alarmas exactas) + servicio en primer plano (sonido y vibración continuos) |
 | Notificaciones | `NotificationManager` con canal de alta importancia |
 | IDE | Android Studio |
 | Build | Gradle 8.9, Android Gradle Plugin 8.7.2, Kotlin 2.0.21 |
@@ -112,6 +118,8 @@ Esta app resuelve ambos puntos con recordatorios automáticos, confirmación de 
 | `POST_NOTIFICATIONS` | Mostrar los recordatorios (Android 13+; se pide al abrir la app) |
 | `USE_EXACT_ALARM` / `SCHEDULE_EXACT_ALARM` | Programar alarmas a la hora exacta |
 | `RECEIVE_BOOT_COMPLETED` | Reprogramar las alarmas después de reiniciar el teléfono |
+| `FOREGROUND_SERVICE`, `WAKE_LOCK`, `VIBRATE` | Mantener la alarma sonando y vibrando hasta confirmarla |
+| `USE_FULL_SCREEN_INTENT` | Mostrar la alarma sobre la pantalla de bloqueo |
 
 ---
 
@@ -126,8 +134,12 @@ Dosify/
     ├── build.gradle.kts
     └── src/main/
         ├── AndroidManifest.xml
-        └── java/com/medreminder/
+        └── java/com/dosify/dosify/
             ├── LoginScreen.kt    # Pantalla de inicio: logo, login y registro
+            ├── Prefs.kt          # Ajustes, narrador por voz, dictado y tema accesible
+            ├── SettingsScreen.kt # Pantalla de Ajustes y revisión de la alarma
+            ├── Alarm.kt          # Alarma insistente (servicio + pantalla de alarma)
+            ├── Social.kt         # Créditos, redes y buscador
             ├── MainActivity.kt   # Interfaz (Compose): medicamentos, tomas, diálogos
             ├── Scheduler.kt      # Alarmas, notificaciones y receivers
             └── Data.kt           # Base de datos SQLite y modelos
@@ -153,15 +165,18 @@ Dosify/
 
 - **v0.3** — Interfaz minimalista siguiendo los wireframes, edición de medicamentos, días de la semana, check de toma con sonido y notificación con el texto del diseño.
 
+- **v0.4** — Alarma insistente con vibración hasta confirmar, ojito en la contraseña, buscador, orden por hora y créditos con redes de JuanxDrock.
+
+- **v0.5** — Suplementos en gramos, categorías e íconos, accesibilidad (letra, contraste, narrador, dictado), alarma reforzada con sonido y vibración configurables.
+
 ## 🛣️ Roadmap
 
-- **v0.4** — Posponer alarma y medicamentos separados por usuario.
-- **v0.5** — Exportación de reportes de adherencia (PDF/CSV).
-- **v0.6** — Panel de administrador: gestión de usuarios y reportes de adherencia.
+- **v0.5** — Posponer alarma y medicamentos separados por usuario.
+- **v0.6** — Exportación de reportes de adherencia (PDF/CSV).
+- **v0.7** — Panel de administrador: gestión de usuarios y reportes de adherencia.
 - **v1.0** — Versión estable con todas las funcionalidades planificadas.
 
 ---
-
 
 ## Autor
 
