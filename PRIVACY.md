@@ -58,7 +58,7 @@ If this policy changes, the new version will be published at this address with a
 ## 10. Contact
 
 Developer: JuanxDrock
-Email: **[PUT YOUR CONTACT EMAIL HERE]**
+Email: **businessjuanxdrocktech@zohomail.com**
 
 ---
 
@@ -122,4 +122,4 @@ Si esta política cambia, la nueva versión se publicará en esta misma direcci�
 ## 10. Contacto
 
 Desarrollador: JuanxDrock
-Correo: **[PON AQUÍ TU CORREO DE CONTACTO]**
+Correo: **businessjuanxdrocktech@zohomail.com**
